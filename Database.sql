@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS KrishiMitra;
+-- DROP DATABASE IF EXISTS KrishiMitra;
 
-CREATE DATABASE KrishiMitra;
+-- CREATE DATABASE KrishiMitra;
 
-USE KrishiMitra;
+-- USE KrishiMitra;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
