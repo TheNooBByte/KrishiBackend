@@ -1,8 +1,13 @@
--- DROP DATABASE IF EXISTS KrishiMitra;
+DROP DATABASE IF EXISTS KrishiMitra;
 
--- CREATE DATABASE KrishiMitra;
+CREATE DATABASE KrishiMitra;
 
--- USE KrishiMitra;
+USE KrishiMitra;
+-- drop database railway;
+
+-- create database railway;
+
+-- use railway;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -28,6 +33,7 @@ CREATE TABLE equipments (
 );
 
 CREATE TABLE requests (
+    id int AUTO_INCREMENT PRIMARY KEY,
     providerId int,
     renterID int,
     mobileNo varchar(10),

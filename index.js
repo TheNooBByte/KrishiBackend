@@ -38,20 +38,21 @@ app.use(
 //
 //
 //
-const db = mysql.createConnection({
-  host: "shinkansen.proxy.rlwy.net",
-  user: "root",
-  password: "HrEqiDVrLTYCbsGfjNFMHmLxSkMmMrqE",
-  database: "railway",
-  port: "49112",
-  connectTimeout: 10000,
-});
 // const db = mysql.createConnection({
-//   host: "localhost",
+//   host: "shinkansen.proxy.rlwy.net",
 //   user: "root",
-//   password: "shivam",
-//   database: "KrishiMitra",
+//   password: "HrEqiDVrLTYCbsGfjNFMHmLxSkMmMrqE",
+//   database: "railway",
+//   port: "49112",
+//   connectTimeout: 10000,
 // });
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "shivam",
+  database: "KrishiMitra",
+});
 
 db.connect((err) => {
   if (err) console.log(err);

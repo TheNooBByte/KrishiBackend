@@ -31,8 +31,8 @@ function AddEquipment(app, db, verifyToken) {
     verifyToken,
     upload.array("images", 10),
     (req, res) => {
-      console.log("Uploaded Files:", req.files); // Log uploaded files
-      console.log("Total Images Received:", req.files.length); // Check count
+      // console.log("Uploaded Files:", req.files); // Log uploaded files
+      // console.log("Total Images Received:", req.files.length); // Check count
       const {
         id,
         equipmentname,

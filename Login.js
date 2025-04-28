@@ -22,10 +22,7 @@ function login(bcrypt, jwt, app, db) {
 
         const token = jwt.sign(
           { id: user.id, username: user.username },
-          SECRET_KEY,
-          {
-            expiresIn: "2h",
-          }
+          SECRET_KEY
         );
         // console.log(result);
         res.cookie("token", token, { httpOnly: true, secure: false }).json({
