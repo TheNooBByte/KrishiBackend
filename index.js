@@ -13,6 +13,7 @@ const home = require("./Home.js");
 const profile = require("./Profile.js");
 const AddEquipment = require("./AddEquipment.js");
 const RequestEquipment = require("./RequestEquipment.js");
+const Dashboard = require("./DashBoard.js");
 
 //
 
@@ -21,7 +22,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://shiva0511.github.io"],
+    origin: ["http://localhost:5173", "https://TheNooBByte.github.io"],
     credentials: true,
   })
 ); // Adjust for frontend
@@ -35,24 +36,22 @@ app.use(
   "/assets/myimage",
   express.static(path.join(__dirname, "assets/myimage"))
 );
-//
-//
-//
-const db = mysql.createConnection({
-  host: "shinkansen.proxy.rlwy.net",
-  user: "root",
-  password: "HrEqiDVrLTYCbsGfjNFMHmLxSkMmMrqE",
-  database: "railway",
-  port: "49112",
-  connectTimeout: 10000,
-});
 
 // const db = mysql.createConnection({
-//   host: "localhost",
+//   host: "shinkansen.proxy.rlwy.net",
 //   user: "root",
-//   password: "shivam",
-//   database: "KrishiMitra",
+//   password: "HrEqiDVrLTYCbsGfjNFMHmLxSkMmMrqE",
+//   database: "railway",
+//   port: "49112",
+//   connectTimeout: 10000,
 // });
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "shivam",
+  database: "KrishiMitra",
+});
 
 db.connect((err) => {
   if (err) console.log(err);
@@ -71,6 +70,8 @@ profile(app, db, verifyToken, bcrypt);
 AddEquipment(app, db, verifyToken);
 //
 RequestEquipment(app, db, verifyToken);
+//
+Dashboard(app, db, verifyToken);
 
 // **Logout**
 app.post("/logout", (req, res) => {
