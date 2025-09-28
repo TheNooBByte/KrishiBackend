@@ -14,6 +14,8 @@ function RequestEquipment(app, db, verifyToken) {
   app.post("/rentequipment", verifyToken, (req, res) => {
     const { userdata, userId, mob } = req.body;
 
+    // console.log(userdata.imagePaths);
+
     // console.log(userdata, userId, mob);
 
     const query = `
@@ -33,6 +35,7 @@ function RequestEquipment(app, db, verifyToken) {
       '${userdata.imagePaths}',
       'Pending'
     )`;
+    console.log(query);
 
     db.query(query, (err, result) => {
       if (err) {

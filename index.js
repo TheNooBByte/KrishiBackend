@@ -49,6 +49,7 @@ app.use(
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
+  // password: "shreeram",
   password: "shivam",
   database: "KrishiMitra",
 });

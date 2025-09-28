@@ -51,7 +51,9 @@ function AddEquipment(app, db, verifyToken) {
       }
 
       // Store image paths as a comma-separated string
-      const imagePaths = req.files.map((file) => file.path).join(",");
+      const imagePaths = req.files.map((file) => file.filename).join(",");
+
+      console.log("the images path is:- " + imagePaths);
 
       // console.log(imagePaths);
 
