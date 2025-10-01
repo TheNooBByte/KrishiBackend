@@ -34,6 +34,8 @@ function register(bcrypt, app, db) {
     ]),
     async (req, res) => {
       try {
+        console.log(req.body);
+
         const { username, password, Email, MobileNo, pinCode, aadhaarNo } =
           req.body;
         const hashedPassword = await bcrypt.hash(password, 10);
