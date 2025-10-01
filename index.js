@@ -40,11 +40,11 @@ app.use(
 );
 
 const db = mysql.createConnection({
-  host: "shinkansen.proxy.rlwy.net",
+  host: "mysql.railway.internal",
   user: "root",
-  password: "HrEqiDVrLTYCbsGfjNFMHmLxSkMmMrqE",
+  password: "rTLzcWOFKmrRUUrwmWjCilfUtDKfDyaj",
   database: "railway",
-  port: "49112",
+  port: "3306",
   connectTimeout: 10000,
 });
 
