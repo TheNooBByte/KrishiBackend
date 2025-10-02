@@ -28,8 +28,8 @@ app.use(
 ); // Adjust for frontend
 app.use(cookieParser());
 app.use("/assets", express.static(path.join(__dirname, "assets")));
-app.use(express.json()); // parses JSON requests
-app.use(express.urlencoded({ extended: true })); // parses form-data
+// app.use(express.json()); // parses JSON requests
+// app.use(express.urlencoded({ extended: true })); // parses form-data
 
 //
 //
