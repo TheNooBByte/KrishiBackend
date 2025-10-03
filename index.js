@@ -44,22 +44,22 @@ app.use(
   express.static(path.join(__dirname, "assets/myimage"))
 );
 
-// const db = mysql.createConnection({
-//   host: "mysql.railway.internal",
-//   user: "root",
-//   password: "rTLzcWOFKmrRUUrwmWjCilfUtDKfDyaj",
-//   database: "railway",
-//   port: "3306",
-//   connectTimeout: 10000,
-// });
-
 const db = mysql.createConnection({
-  host: "localhost",
+  host: "mysql.railway.internal",
   user: "root",
-  // password: "shreeram",
-  password: "shivam",
-  database: "KrishiMitra",
+  password: "rTLzcWOFKmrRUUrwmWjCilfUtDKfDyaj",
+  database: "railway",
+  port: "3306",
+  connectTimeout: 10000,
 });
+
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   // password: "shreeram",
+//   password: "shivam",
+//   database: "KrishiMitra",
+// });
 
 db.connect((err) => {
   if (err) console.log(err);
