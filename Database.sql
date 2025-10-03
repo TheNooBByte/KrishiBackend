@@ -18,7 +18,8 @@ CREATE TABLE users (
     pincode varchar(6),
     aadhaarNo varchar(12),
     aadhaarFront TEXT NOT NULL,
-    aadhaarBack TEXT NOT NULL
+    aadhaarBack TEXT NOT NULL,
+    kycStatus varchar(50)
 );
 
 CREATE TABLE equipments (

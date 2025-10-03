@@ -14,6 +14,7 @@ const profile = require("./Profile.js");
 const AddEquipment = require("./AddEquipment.js");
 const RequestEquipment = require("./RequestEquipment.js");
 const Dashboard = require("./DashBoard.js");
+const AdminApproval = require("./AdminApproval.js");
 
 //
 
@@ -22,7 +23,11 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://TheNooBByte.github.io"],
+    origin: [
+      "http://localhost:5173",
+      "http://127.0.0.1:5500",
+      "https://TheNooBByte.github.io",
+    ],
     credentials: true,
   })
 ); // Adjust for frontend
@@ -39,26 +44,26 @@ app.use(
   express.static(path.join(__dirname, "assets/myimage"))
 );
 
-const db = mysql.createConnection({
-  host: "mysql.railway.internal",
-  user: "root",
-  password: "rTLzcWOFKmrRUUrwmWjCilfUtDKfDyaj",
-  database: "railway",
-  port: "3306",
-  connectTimeout: 10000,
-});
-
 // const db = mysql.createConnection({
-//   host: "localhost",
+//   host: "mysql.railway.internal",
 //   user: "root",
-//   // password: "shreeram",
-//   password: "shivam",
-//   database: "KrishiMitra",
+//   password: "rTLzcWOFKmrRUUrwmWjCilfUtDKfDyaj",
+//   database: "railway",
+//   port: "3306",
+//   connectTimeout: 10000,
 // });
+
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  // password: "shreeram",
+  password: "shivam",
+  database: "KrishiMitra",
+});
 
 db.connect((err) => {
   if (err) console.log(err);
-  else console.log("MySQL Connected... working....");
+  else console.log("MySQL Connected...");
 });
 
 // **User Registration**
@@ -75,6 +80,8 @@ AddEquipment(app, db, verifyToken);
 RequestEquipment(app, db, verifyToken);
 //
 Dashboard(app, db, verifyToken);
+//
+AdminApproval(app, db);
 
 // **Logout**
 app.post("/logout", (req, res) => {

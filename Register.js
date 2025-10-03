@@ -34,7 +34,7 @@ function register(bcrypt, app, db) {
     ]),
     async (req, res) => {
       try {
-        console.log(req.body);
+        // console.log(req.body);
 
         const { username, password, Email, MobileNo, pinCode, aadhaarNo } =
           req.body;
@@ -76,7 +76,7 @@ function register(bcrypt, app, db) {
           }
         );
       } catch (error) {
-        console.error(error);
+        console.error("From register: ", error);
         res.status(500).json({ error: "Server error" });
       }
     }

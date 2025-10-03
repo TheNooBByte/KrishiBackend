@@ -39,6 +39,8 @@ function RequestEquipment(app, db, verifyToken) {
 
     db.query(query, (err, result) => {
       if (err) {
+        console.log("here is the black ship");
+
         console.log(err);
         return res.status(500).json({ error: err.message });
       }
